@@ -3,21 +3,16 @@ import { ThemeColorContext } from '@/context/ThemeColorContext';
 
 const AppearanceColor: React.FC = () => {
     const themeContext = useContext(ThemeColorContext);
-
-    if (!themeContext) {
-        return <div>Loading...</div>;
-    }
-
     const { themeColor, handleColorChange } = themeContext;
 
     return (
-        <div className={`${themeColor} min-h-screen flex`}>
-            {/* Sidebar */}
-            <div className="w-64 h-full bg-gray-200 p-4">
+        <div className={`${themeColor}  `}>
+
+            <div className="     p-4 flex ">
                 <h2 className="text-lg font-bold mb-4">Select Theme Color</h2>
-                <div className="flex flex-col space-y-2">
+                <div className="flex gap-4 w-full ">
                     <button
-                        onClick={() => handleColorChange('text-red-500')}
+                        onClick={() => handleColorChange('text-red-500 ')}
                         className="w-full p-2 bg-red-500 text-white rounded hover:opacity-75"
                     >
                         Red
