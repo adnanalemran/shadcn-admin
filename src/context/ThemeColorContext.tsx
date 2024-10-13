@@ -13,7 +13,7 @@ interface ThemeProviderProps {
 }
 
 export const ThemeColorProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-    const [themeColor, setThemeColor] = useState<string>('text-white');  // Default theme color
+    const [themeColor, setThemeColor] = useState<string>('');  // Set the default theme color
 
     useEffect(() => {
         const savedThemeColor = localStorage.getItem('themeColor');

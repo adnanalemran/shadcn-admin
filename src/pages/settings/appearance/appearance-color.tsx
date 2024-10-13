@@ -38,11 +38,7 @@ const AppearanceColor: React.FC = () => {
                 </div>
             </div>
 
-            {/* Main Content */}
-            <div className="flex-1 p-8">
-                <h1 className="text-3xl font-bold text-white">Dashboard</h1>
-                <p className="text-white mt-4">The theme color is applied globally across the app.</p>
-            </div>
+
         </div>
     );
 };
