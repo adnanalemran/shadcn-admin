@@ -13,6 +13,7 @@ import { Separator } from '@/components/ui/separator'
 import ThemeSwitch from '@/components/theme-switch'
 import { UserNav } from '@/components/user-nav'
 import SidebarNav from './components/sidebar-nav'
+import HeaderSection from './components/header-section'
 
 export default function Settings() {
   return (
@@ -30,18 +31,7 @@ export default function Settings() {
 
 
         <div>
-
-
-          <div className='space-y-0.5'>
-            <h1 className='text-2xl font-bold tracking-tight md:text-3xl'>
-              Settings
-            </h1>
-            <p className='text-muted-foreground'>
-              Manage your account settings and set e-mail preferences.
-            </p>
-          </div>
-
-
+          <HeaderSection title="Settings " subTitle="Manage your account settings and set e-mail preferences." />
 
           <Separator className='my-4 lg:my-6' />
           <div className='flex flex-1 flex-col space-y-8 md:space-y-2 md:overflow-hidden lg:flex-row lg:space-x-12 lg:space-y-0'>
