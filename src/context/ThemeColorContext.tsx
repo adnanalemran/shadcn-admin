@@ -2,11 +2,11 @@ import React, { createContext, useState, useEffect, ReactNode } from 'react';
 
 // Define the shape of the context
 interface ThemeContextType {
-    textColor: string;
-    hoverBgColor: string;
-    bgColor: string;
-    subTextColor: string;
-    handleColorChange: (colorData: { textColor: string; hoverBgColor: string; bgColor: string; subTextColor: string }) => void;
+    textColor1: string;
+    textColor2: string;
+    bgColor1: string;
+    bgColor2: string;
+    handleColorChange: (colorData: { textColor1: string; textColor2: string; bgColor1: string; bgColor2: string; }) => void;
 }
 
 export const ThemeColorContext = createContext<ThemeContextType>(null!);
@@ -16,39 +16,37 @@ interface ThemeProviderProps {
 }
 
 export const ThemeColorProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-    const [textColor, setTextColor] = useState<string>('text-black');
-    const [hoverBgColor, setHoverBgColor] = useState<string>('hover:bg-gray-300');
-    const [bgColor, setBgColor] = useState<string>('bg-white');
-    const [subTextColor, setSubTextColor] = useState<string>('text-gray-600'); // Default subTextColor
+    const [textColor1, setTextColor1] = useState<string>('text-black'); // Default text color 1
+    const [textColor2, setTextColor2] = useState<string>('text-gray-600'); // Default text color 2
+    const [bgColor1, setBgColor1] = useState<string>('bg-white'); // Default background color 1
+    const [bgColor2, setBgColor2] = useState<string>('bg-gray-300'); // Default background color 2
 
     useEffect(() => {
-        const savedTextColor = localStorage.getItem('textColor');
-        const savedHoverBgColor = localStorage.getItem('hoverBgColor');
-        const savedBgColor = localStorage.getItem('bgColor');
-        const savedSubTextColor = localStorage.getItem('subTextColor');
+        const savedTextColor1 = localStorage.getItem('textColor1');
+        const savedTextColor2 = localStorage.getItem('textColor2');
+        const savedBgColor1 = localStorage.getItem('bgColor1');
+        const savedBgColor2 = localStorage.getItem('bgColor2');
 
-        if (savedTextColor && savedHoverBgColor && savedBgColor && savedSubTextColor) {
-            setTextColor(savedTextColor);
-            setHoverBgColor(savedHoverBgColor);
-            setBgColor(savedBgColor);
-            setSubTextColor(savedSubTextColor);
-        }
+        if (savedTextColor1) setTextColor1(savedTextColor1);
+        if (savedTextColor2) setTextColor2(savedTextColor2);
+        if (savedBgColor1) setBgColor1(savedBgColor1);
+        if (savedBgColor2) setBgColor2(savedBgColor2);
     }, []);
 
-    const handleColorChange = (colorData: { textColor: string; hoverBgColor: string; bgColor: string; subTextColor: string }) => {
-        setTextColor(colorData.textColor);
-        setHoverBgColor(colorData.hoverBgColor);
-        setBgColor(colorData.bgColor);
-        setSubTextColor(colorData.subTextColor);
+    const handleColorChange = (colorData: { textColor1: string; textColor2: string; bgColor1: string; bgColor2: string }) => {
+        setTextColor1(colorData.textColor1);
+        setTextColor2(colorData.textColor2);
+        setBgColor1(colorData.bgColor1);
+        setBgColor2(colorData.bgColor2);
 
-        localStorage.setItem('textColor', colorData.textColor);
-        localStorage.setItem('hoverBgColor', colorData.hoverBgColor);
-        localStorage.setItem('bgColor', colorData.bgColor);
-        localStorage.setItem('subTextColor', colorData.subTextColor);
+        localStorage.setItem('textColor1', colorData.textColor1);
+        localStorage.setItem('textColor2', colorData.textColor2);
+        localStorage.setItem('bgColor1', colorData.bgColor1);
+        localStorage.setItem('bgColor2', colorData.bgColor2);
     };
 
     return (
-        <ThemeColorContext.Provider value={{ textColor, hoverBgColor, bgColor, subTextColor, handleColorChange }}>
+        <ThemeColorContext.Provider value={{ textColor1, textColor2, bgColor1, bgColor2, handleColorChange }}>
             {children}
         </ThemeColorContext.Provider>
     );

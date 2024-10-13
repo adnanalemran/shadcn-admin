@@ -15,13 +15,13 @@ export default function ContentSection({
   children,
 }: ContentSectionProps) {
 
-  const { textColor, subTextColor } = useContext(ThemeColorContext);
+  const { textColor1, textColor2 } = useContext(ThemeColorContext);
 
   return (
     <div className={`flex flex-1 flex-col `}>
       <div className='flex-none'>
-        <h3 className={`text-lg font-medium ${textColor}`}>{title}</h3>
-        <p className={`text-sm text-muted-foreground ${subTextColor} `}>{desc}</p>
+        <h3 className={`text-lg font-medium ${textColor1}`}>{title}</h3>
+        <p className={`text-sm text-muted-foreground ${textColor2} `}>{desc}</p>
       </div>
       <Separator className='my-4 flex-none' />
       <div className='faded-bottom -mx-4 flex-1 overflow-auto scroll-smooth px-4 md:pb-16'>
